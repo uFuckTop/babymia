@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secret Space ❤️</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Kaushan+Script&family=Indie+Flower&display=swap" rel="stylesheet" />
+
+  <!-- Animate.css (shake sul codice sbagliato) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Cuori fluttuanti in background -->
+  <div id="hearts-container"></div>
+
+  <!-- ── SCHERMATA INIZIALE: Lucchetto ── -->
+  <div class="main-center-container">
+    <div class="cadeado-wrapper" id="heart-lock">
+      <div class="cadeado">
+        <div class="coracao"></div>
+        <div class="plus"></div>
+      </div>
+    </div>
+    <p class="instruction-text">Clicca per aprire il mio cuore</p>
+  </div>
+
+  <!-- ── OVERLAY CASSAFORTE ── -->
+  <div class="modal-overlay" id="safe-modal" style="display:none;">
+    <div class="love-safe">
+      <div class="safe-inner-wrapper">
+        <div class="safe-header">
+          <span>🔐 Inserisci la nostra data</span>
+        </div>
+        <div class="safe-screen">
+          <span id="screen-text">GG / MM / AAAA</span>
+        </div>
+        <div class="safe-keypad">
+          <button class="key-btn" onclick="pressKey('1')">1</button>
+          <button class="key-btn" onclick="pressKey('2')">2</button>
+          <button class="key-btn" onclick="pressKey('3')">3</button>
+          <button class="key-btn" onclick="pressKey('4')">4</button>
+          <button class="key-btn" onclick="pressKey('5')">5</button>
+          <button class="key-btn" onclick="pressKey('6')">6</button>
+          <button class="key-btn" onclick="pressKey('7')">7</button>
+          <button class="key-btn" onclick="pressKey('8')">8</button>
+          <button class="key-btn" onclick="pressKey('9')">9</button>
+          <button class="key-btn btn-clear" onclick="pressKey('C')">DEL</button>
+          <button class="key-btn" onclick="pressKey('0')">0</button>
+          <button class="key-btn btn-enter" onclick="checkPassword()">❤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── OVERLAY LETTERA ── -->
+  <div class="letter-overlay" id="letter-container" style="display:none;">
+
+    <!-- Music Player -->
+    <div class="music-player-wrapper" id="music-player">
+      <button id="play-pause-btn">▶</button>
+      <div class="song-info">
+        <span class="song-title">Ti dedico questa canzone</span>
+        <div class="music-waves">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <audio id="love-song" src="love_song.mp3" loop></audio>
+
+    <div class="letter-content">
+
+      <!-- ── SLIDESHOW ── -->
+      <div id="slideshow-section">
+        <div class="slideshow-container">
+          <img class="slide" src="1.png"/>
+          <img class="slide" src="2.png"/>
+          <img class="slide" src="3.png"/>
+          <img class="slide" src="4.png"/>
+          <img class="slide" src="5.png"/>
+          <img class="slide" src="6.png"/>
+          <!-- Aggiungi altre foto qui: <img class="slide" src="foto3.jpg" alt="Foto 3" /> -->
+        </div>
+
+        <p style="color:#ff8fa3; font-size:1rem; margin-bottom:10px;">❤️Per la mia Baby❤️</p>
+        <button class="btn-minimal" id="to-poetry-btn">Leggi la mia lettera 💌</button>
+      </div>
+
+      <!-- ── POESIA ── -->
+      <div id="poetry-section" style="display:none;">
+        <div class="poetry-paper">
+          <p class="poetry-title">Per te ✨</p>
+          <p class="poetry-text">
+            Sei la luce che illumina i miei giorni,<br/>
+            il sorriso che scalda il mio cuore.<br/><br/>
+            Con te ogni momento è magico,<br/>
+            e ogni sogno diventa (Quasi) realtà.<br/><br/>
+            Ti amo più di quanto le parole possano esprimere,<br/>
+            e sono grato per ogni istante passato insieme.<br/><br/>
+            Sei il mio tutto, il mio amore eterno.
+          </p>
+          <div class="poetry-footer">
+            <span id="poetry-icon">❤️</span>
+            <span>Per sempre tuo, Issam.</span>
+            <span id="poetry-icon-2">❤️</span>
+          </div>
+        </div>
+
+        <button class="btn-minimal" id="close-everything">Chiudi 💔</button>
+      </div>
+
+    </div><!-- /letter-content -->
+  </div><!-- /letter-overlay -->
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
